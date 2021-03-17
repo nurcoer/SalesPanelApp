@@ -1,0 +1,46 @@
+﻿@model IList<SalesPanelApp.Models.AdminBoardDto>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Ürün Listesi </h2>
+<div class="container">
+
+    <table class="table">
+        <tr>
+            <th>
+                Project Name
+            </th>
+            <th>
+                Project Code
+            </th>
+            <th>
+                Brand Name
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                <td>
+                    @Html.ActionLink("Detail", "ProjectDetail", new { id = item.ProductId}) 
+                </td>
+            </tr>
+        }
+
+    </table>
+
+
+</div>
